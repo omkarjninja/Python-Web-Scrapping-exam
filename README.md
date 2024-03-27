@@ -1,11 +1,12 @@
 !pip install twisted==21.7.0
-pip install scrapy
-import scrapy
-
-class MySpider (scrapy. Spider):
-    name = "myspider"
-    start_urls = ["https://presidencyuniversity.in",]
-    def parse(self, response):
+<br>
+pip install scrapy<br>
+import scrapy<br>
+<br>
+class MySpider (scrapy. Spider):<br>
+    name = "myspider"<br>
+    start_urls = ["https://presidencyuniversity.in",]<br>
+    def parse(self, response):<br>
         title = response.css('title::text').get()
         paragraph = response.css('p::text').get()
         print("Title: %s" %title)

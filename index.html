@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      !pip install twisted==21.7.0
+      <br />
+      pip install scrapy<br />
+      import scrapy<br />
+      <br />
+      class MySpider (scrapy. Spider):<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;name = "myspider"<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;start_urls =
+      ["https://presidencyuniversity.in",]<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def parse(self,
+      response):<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title
+      = response.css('title::text').get()
+      <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paragraph
+      = response.css('p::text').get()
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Title:
+      %s" %title)
+      <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Paragraph:
+      %s" %paragraph)
+      <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield
+      {
+      <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title'
+      : Title,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      'paragraph': Paragraph } <br />from scrapy.crawler import
+      CrawlerProcess<br /><br />
+      process = CrawlerProcess (settings = { <br />'FEED_FORMAT': 'json',
+      <br />'FEED_URI' : 'output.json' }) <br />
+      process.crawl(MySpider) <br /><br />
+      process.start()
+    </p>
+  </body>
+</html>
